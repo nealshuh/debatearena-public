@@ -1,0 +1,473 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #000;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.App {
+  padding: 20px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.close-button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: bold;
+  background-color: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  font-family: 'Roboto', sans-serif;
+  border: 1px solid #444;
+  border-radius: 5px;
+  background-color: transparent;
+  color: #fff;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #333;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* Debate Arena */
+.debate-arena {
+  border: 2px solid #444;
+  padding: 20px;
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: draw-border 2s linear forwards;
+  box-sizing: border-box;
+  background-color: #111;
+}
+
+@keyframes draw-border {
+  0% {
+    border-top: 2px solid transparent;
+    border-right: 2px solid transparent;
+    border-bottom: 2px solid transparent;
+    border-left: 2px solid transparent;
+  }
+  25% {
+    border-top: 2px solid #444;
+    border-right: 2px solid transparent;
+    border-bottom: 2px solid transparent;
+    border-left: 2px solid transparent;
+  }
+  50% {
+    border-top: 2px solid #444;
+    border-right: 2px solid #444;
+    border-bottom: 2px solid transparent;
+    border-left: 2px solid transparent;
+  }
+  75% {
+    border-top: 2px solid #444;
+    border-right: 2px solid #444;
+    border-bottom: 2px solid #444;
+    border-left: 2px solid transparent;
+  }
+  100% {
+    border-top: 2px solid #444;
+    border-right: 2px solid #444;
+    border-bottom: 2px solid #444;
+    border-left: 2px solid #444;
+  }
+}
+
+.labels {
+  display: flex;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+
+.for-label, .against-label {
+  font-weight: bold;
+}
+
+.for-label.active {
+  color: #3a3;
+}
+
+.against-label.active {
+  color: #a33;
+}
+
+.chat-box {
+  border: 1px solid #444;
+  padding: 10px;
+  height: 100%;
+  overflow-y: auto;
+  margin-bottom: 10px;
+  background-color: #222;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.message {
+  padding: 5px 10px;
+  margin: 5px 0;
+  max-width: 70%;
+  font-family: 'Roboto', sans-serif;
+}
+
+.message.user-for, .message.assistant-for {
+  background-color: #3a3;
+  align-self: flex-start;
+  text-align: left;
+}
+
+.message.user-against, .message.assistant-against {
+  background-color: #a33;
+  align-self: flex-end;
+  text-align: left;
+}
+
+.message.system {
+  font-style: italic;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.topic-message {
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 13px;
+}
+
+.round-message {
+  text-align: center;
+  color: yellow;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.argument-form {
+  display: flex;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.next-turn-text {
+  cursor: default; /* Make the prep time text not clickable */
+  color: yellow;
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 14px; /* Match the font size with the debate timer */
+}
+
+.next-turn-text:hover {
+  color: #ff0;
+}
+
+.timer-display {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 14px;
+  color: #fff;
+}
+
+#argument-input {
+  flex: 2;
+  padding: 10px;
+  font-size: 16px;
+  font-family: 'Roboto', sans-serif;
+  box-sizing: border-box;
+  border: 1px solid #444;
+  border-radius: 5px;
+  background-color: #222;
+  color: #fff;
+  overflow: auto;
+}
+
+#argument-input:focus {
+  outline: none;
+  border-color: #666;
+}
+
+#argument-input:focus {
+  outline: none;
+  border-color: #666;
+}
+
+.argument-form button {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  font-family: 'Roboto', sans-serif;
+  background-color: #333;
+  color: #fff;
+  border: 1px solid #444;
+  border-radius: 5px;
+}
+
+.argument-form button:disabled {
+  background-color: #666;
+  cursor: not-allowed;
+}
+
+
+.end-debate {
+  cursor: pointer;
+  color: yellow;
+  position: absolute;
+  bottom: -7.5px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 14px;
+}
+
+.end-debate:hover {
+  color: #ff0;
+}
+
+.loading-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.recording-controls {
+  position: absolute;
+  right: 70px; /* Adjust based on your layout */
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.record-button,
+.stop-record-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+}
+
+.record-button {
+  color: #3a3;
+}
+
+.stop-record-button {
+  color: #a33;
+}
+
+.record-button:hover,
+.stop-record-button:hover,
+.send-button:hover,
+.end-prep-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.record-button:disabled,
+.send-button:disabled,
+.end-prep-button:disabled {
+  color: #666;
+  cursor: not-allowed;
+}
+
+.stop-record-button {
+  animation: pulse 1s infinite;
+}
+
+.message.system a {
+  color: #0000EE;
+  text-decoration: none;
+  margin-right: 5px;
+}
+
+.message.system a:hover {
+  text-decoration: underline;
+}
+
+.all-sources-container {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #222;
+  border: 1px solid #444;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 14px;
+}
+
+.all-sources-container h3 {
+  margin: 0 0 10px 0;
+  font-size: 16px;
+  color: #ddd;
+}
+
+.sources-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+}
+
+.round-sources {
+  background-color: #333;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+.round-sources h4 {
+  margin: 0 0 5px 0;
+  font-size: 14px;
+  color: #aaa;
+}
+
+.round-sources ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.round-sources li {
+  margin-bottom: 2px;
+}
+
+.round-sources a {
+  color: #00bfff; 
+  text-decoration: none;
+  font-size: 12px;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.round-sources a:hover {
+  text-decoration: underline;
+}
+
+.additional-sources {
+  grid-column: 1 / -1;
+  margin-top: 10px;
+}
+
+.additional-sources-button {
+  background-color: #444;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.additional-sources-button:hover {
+  background-color: #555;
+}
+
+.hidden {
+  display: none;
+}
+
+.timer-display {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 14px;
+  color: #fff;
+  background-color: rgba(34, 34, 34, 0.8);
+  padding: 2px 8px;
+  border-radius: 10px;
+  border: 1px solid #666;
+  font-family: 'Roboto', sans-serif;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.timer-blink {
+  color: yellow;
+  animation: blink 1s step-start infinite;
+}
+
+.card-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.card-content {
+  background-color: #1e1e1e;
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+  position: relative;
+  text-align: center;
+  width: 400px
+}
+
+.close-button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: none;
+  border: none;
+  align-items: center;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

@@ -1,0 +1,98 @@
+.evaluation-report-card {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #222;
+    border: 1px solid #444;
+    border-radius: 10px;
+    padding: 20px;
+    width: 80%;
+    max-width: 750px;
+    max-height: 90vh;
+    overflow-y: auto;
+    z-index: 1000;
+    color: #fff;
+  }
+  
+  .evaluation-report-card h2, .evaluation-report-card h4 {
+    color: #00bfff;
+    margin-bottom: 15px;
+  }
+  
+  .evaluation-report-card .topic {
+    color: #fff;
+    margin-bottom: 15px;
+  }
+  
+  .chart-container {
+    margin-bottom: 20px;
+    background-color: #333;
+    padding: 10px;
+    border-radius: 5px;
+    height: 250px;
+  }
+  
+  .summary-container {
+    margin-bottom: 20px;
+  }
+
+  .summary-container {
+    margin-bottom: 20px;
+    text-align: left;
+  }
+  
+  .summary-container h1,
+  .summary-container h2,
+  .summary-container h3,
+  .summary-container h4,
+  .summary-container h5,
+  .summary-container h6 {
+    color: #00bfff;
+    margin-top: 15px;
+    margin-bottom: 10px;
+  }
+  
+  .summary-container p {
+    margin-bottom: 10px;
+  }
+  
+  .summary-container ul,
+  .summary-container ol {
+    margin-left: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .summary-container li {
+    margin-bottom: 5px;
+  }
+  
+  .summary-container a {
+    color: #00bfff;
+    text-decoration: none;
+  }
+  
+  .summary-container a:hover {
+    text-decoration: underline;
+  }
+  
+  .summary-container code {
+    background-color: #333;
+    padding: 2px 4px;
+    border-radius: 3px;
+  }
+  
+  .summary-container pre {
+    background-color: #333;
+    padding: 10px;
+    border-radius: 5px;
+    overflow-x: auto;
+  }
+  
+  .summary-container blockquote {
+    border-left: 3px solid #00bfff;
+    padding-left: 10px;
+    margin-left: 0;
+    color: #aaa;
+  }
+  

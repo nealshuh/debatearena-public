@@ -1,0 +1,43 @@
+.evaluation-bar-container {
+  margin-top: 10px;
+}
+
+.evaluation-bar {
+  height: 20px;
+  background-color: #a33;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.evaluation-bar-fill {
+  height: 100%;
+  background-color: #3a3;
+  transition: width 0.5s ease-in-out;
+  position: relative;
+}
+
+.evaluation-summary {
+  text-align: center;
+  color: #aaa;
+  font-size: 12px;
+  margin-top: 10px;
+}
+
+.score-display {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 12px;
+  font-weight: bold;
+  color: #fff;
+  padding: 0 5px;
+}
+
+.score-display-for {
+  left: 5px;
+}
+
+.score-display-against {
+  right: 5px;
+}
